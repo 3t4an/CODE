@@ -12,18 +12,27 @@
             var WORD = "APPLE";
             var ROW = 1;
             function submitWord() {
-                var word = document.getElementById("WORD_INPUT").value;
-                for (var i = 0; i <word.length; i++) {
+                var word = document.getElementById("WORD_INPUT").value.toUpperCase();
+                for (var i = 0; i < word.length; i++) {
+                    if (word[i] == WORD[i]) {
+                        document.getElementById(ROW + "-" + (i + 1)).style.backgroundColor = "rgb(106, 170, 100)";
+                    } else if (WORD.includes(word[i])) {
+                        document.getElementById(ROW + "-" + (i + 1)).style.backgroundColor = "rgb(201, 180, 88)";
+                    } else {
+                        document.getElementById(ROW + "-" + (i + 1)).style.backgroundColor = "rgb(120, 124, 126)";
+                    }
                     document.getElementById(ROW + "-" + (i + 1)).value = word[i];
                 }
-                ROW++;
+                if (word.length > 0) {
+                    ROW++;
+                }
                 document.getElementById("WORD_INPUT").value = "";
             }
         </script>
     </head>
     <body>
         <div>
-            <input id="WORD_INPUT" style="width: 200px; height: 40px; text-align: center;" placeholder="Enter a word" /><br/>
+            <input id="WORD_INPUT" style="width: 200px; height: 40px; text-align: center;" placeholder="Enter a word" maxlength="5"/><br/>
             <button id="SUBMIT_BUTTON" style="width: 200px; height: 20px;" onclick="submitWord()">Submit</button>
             <div style="padding-top: 10px;">
                 <input id="1-1" style="width: 40px; height: 40px; text-align: center;" readonly/>
