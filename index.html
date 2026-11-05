@@ -14,14 +14,18 @@
             function submitWord() {
                 var word = document.getElementById("WORD_INPUT").value.toUpperCase();
                 for (var i = 0; i < word.length; i++) {
+
+                    id = ROW+"-"+(i+1)
+
                     if (word[i] == WORD[i]) {
-                        document.getElementById(ROW + "-" + (i + 1)).style.backgroundColor = "rgb(106, 170, 100)";
+                        document.getElementById(id).style.backgroundColor = "rgb(106, 170, 100)";
                     } else if (WORD.includes(word[i])) {
-                        document.getElementById(ROW + "-" + (i + 1)).style.backgroundColor = "rgb(201, 180, 88)";
+                        document.getElementById(id).style.backgroundColor = "rgb(201, 180, 88)";
                     } else {
-                        document.getElementById(ROW + "-" + (i + 1)).style.backgroundColor = "rgb(120, 124, 126)";
+                        document.getElementById(id).style.backgroundColor = "rgb(120, 124, 126)";
                     }
-                    document.getElementById(ROW + "-" + (i + 1)).value = word[i];
+                    
+                    document.getElementById(id).value = word[i];
                 }
                 if (word.length > 0) {
                     ROW++;
