@@ -15,11 +15,11 @@
                 "EARTH", "FLAME", "FLASH", "GLASS", "GRAPE", "GREEN", "HEART", "HOUSE", "JUICE", "LIGHT",
                 "MONEY", "MUSIC", "NIGHT", "OCEAN", "PARTY", "PHONE", "PLANT", "PLATE", "POWER", "RADIO",
                 "RIVER", "SMILE", "SNAKE", "SPACE", "SPORT", "STORM", "TABLE", "TRAIN", "WATER", "WORLD",
-                "ANGEL", "BLACK", "BLOOM", "BLOUSE", "BONES", "CANDY", "CLOCK", "CROWN", "DANCE", "DREAM",
+                "ANGEL", "BLACK", "BLOOM", "BROWN", "BONES", "CANDY", "CLOCK", "CROWN", "DANCE", "DREAM",
                 "FIELD", "FIRST", "FLOOR", "GHOST", "GRASS", "HAPPY", "HORSE", "IMAGE", "LEMON", "MAGIC",
-                "MARCH", "MATCH", "MOUSE", "PAPER", "PEACH", "PIANO", "PILOT", "PIZZA", "QUEEN", "ROBOT",
+                "MARCH", "MATCH", "MOUSE", "PAPER", "PARTS", "PIANO", "PILOT", "PIZZA", "QUEEN", "ROBOT",
                 "SHARK", "SHEEP", "SHIRT", "SMOKE", "STORY", "SUGAR", "SWEET", "TIGER", "TOUCH", "TOWEL",
-                "TRUCK", "VOICE", "WATCH", "WHITE", "WOMAN", "YOUTH", "ZEBRA", "ADULT", "AGENT", "ALERT",
+                "TRUCK", "VOICE", "WATCH", "WHITE", "JESUS", "YOUTH", "ZEBRA", "ADULT", "AGENT", "ALERT",
                 "AUDIO", "BRAVE", "CLEAN", "CLEAR", "COVER", "EQUAL", "FAITH", "FRESH", "GREAT", "SMART"
             ]
 
@@ -52,12 +52,19 @@
 
                     id = ROW+"-"+(i+1)
 
+                    key = document.getElementById(word[i])
+
                     if (word[i] == WORD[i]) {
                         document.getElementById(id).style.backgroundColor = "rgb(106, 170, 100)";
+                        key.style.backgroundColor = "rgb(106, 170, 100)";
                     } else if (WORD.includes(word[i])) {
                         document.getElementById(id).style.backgroundColor = "rgb(201, 180, 88)";
+                        if (key.style.backgroundColor != "rgb(106, 170, 100)") {
+                            key.style.backgroundColor = "rgb(201, 180, 88)";
+                        }
                     } else {
                         document.getElementById(id).style.backgroundColor = "rgb(120, 124, 126)";
+                        key.style.backgroundColor = "rgb(120, 124, 126)";
                     }
 
                     document.getElementById(id).value = word[i];
@@ -128,6 +135,40 @@
                 <input id="6-3" style="width: 40px; height: 40px; text-align: center;" readonly/>
                 <input id="6-4" style="width: 40px; height: 40px; text-align: center;" readonly/>
                 <input id="6-5" style="width: 40px; height: 40px; text-align: center;" readonly/>
+            </div>
+        </div>
+        <div>
+            <div style="padding-top: 10px;">
+                <input id="Q" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="Q"/>
+                <input id="W" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="W"/>
+                <input id="E" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="E"/>
+                <input id="R" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="R"/>
+                <input id="T" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="T"/>
+                <input id="Y" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="Y"/>
+                <input id="U" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="U"/>
+                <input id="I" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="I"/>
+                <input id="O" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="O"/>
+                <input id="P" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="P"/>
+            </div>
+            <div style="padding-top: 10px;">
+                <input id="A" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="A"/>
+                <input id="S" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="S"/>
+                <input id="D" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="D"/>
+                <input id="F" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="F"/>
+                <input id="G" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="G"/>
+                <input id="H" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="H"/>
+                <input id="J" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="J"/>
+                <input id="K" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="K"/>
+                <input id="L" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="L"/>
+            </div>
+            <div style="padding-top: 10px;">
+                <input id="Z" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="Z"/>
+                <input id="X" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="X"/>
+                <input id="C" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="C"/>
+                <input id="V" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="V"/>
+                <input id="B" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="B"/>
+                <input id="N" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="N"/>
+                <input id="M" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="M"/>
             </div>
             <input id="WORD_INPUT" style="width: 200px; height: 20px; text-align: center; margin-top: 5px;" placeholder="Enter a word" maxlength="5"/><br/>
             <button id="SUBMIT_BUTTON" style="width: 200px; height: 20px; text-align: center; margin-top: 5px;" onclick="submitWord()">Submit</button>
