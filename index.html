@@ -9,32 +9,41 @@
             }
         </style>
         <script>
+            
             var PLAYING = true;
             var WORD = "APPLE";
             var ROW = 1;
+
             function submitWord() {
-                var word = document.getElementById("WORD_INPUT").value.toUpperCase();
-                if (PLAYING) {
-                    for (var i = 0; i < word.length; i++) {
 
-                        id = ROW+"-"+(i+1)
+                var input = document.getElementById("WORD_INPUT");
+                var word = input.value.toUpperCase();
 
-                        if (word[i] == WORD[i]) {
-                            document.getElementById(id).style.backgroundColor = "rgb(106, 170, 100)";
-                        } else if (WORD.includes(word[i])) {
-                            document.getElementById(id).style.backgroundColor = "rgb(201, 180, 88)";
-                        } else {
-                            document.getElementById(id).style.backgroundColor = "rgb(120, 124, 126)";
-                        }
+                for (var i = 0; i < word.length; i++) {
 
-                        document.getElementById(id).value = word[i];
+                    id = ROW+"-"+(i+1)
+
+                    if (word[i] == WORD[i]) {
+                        document.getElementById(id).style.backgroundColor = "rgb(106, 170, 100)";
+                    } else if (WORD.includes(word[i])) {
+                        document.getElementById(id).style.backgroundColor = "rgb(201, 180, 88)";
+                    } else {
+                        document.getElementById(id).style.backgroundColor = "rgb(120, 124, 126)";
                     }
-                    if (word.length > 0) {
-                        ROW++;
-                    }
+
+                    document.getElementById(id).value = word[i];
                 }
 
-                document.getElementById("WORD_INPUT").value = "";
+                if (word.length > 0) {
+                    ROW++;
+                }
+
+                input.value = "";
+
+                if (word == WORD) {
+                    input.style.display = "None";
+                    document.getElementById("SUBMIT_BUTTON").style.display = "None";
+                }
             }
         </script>
     </head>
