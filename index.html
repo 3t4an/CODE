@@ -9,27 +9,31 @@
             }
         </style>
         <script>
+            var PLAYING = true;
             var WORD = "APPLE";
             var ROW = 1;
             function submitWord() {
                 var word = document.getElementById("WORD_INPUT").value.toUpperCase();
-                for (var i = 0; i < word.length; i++) {
+                if (PLAYING) {
+                    for (var i = 0; i < word.length; i++) {
 
-                    id = ROW+"-"+(i+1)
+                        id = ROW+"-"+(i+1)
 
-                    if (word[i] == WORD[i]) {
-                        document.getElementById(id).style.backgroundColor = "rgb(106, 170, 100)";
-                    } else if (WORD.includes(word[i])) {
-                        document.getElementById(id).style.backgroundColor = "rgb(201, 180, 88)";
-                    } else {
-                        document.getElementById(id).style.backgroundColor = "rgb(120, 124, 126)";
+                        if (word[i] == WORD[i]) {
+                            document.getElementById(id).style.backgroundColor = "rgb(106, 170, 100)";
+                        } else if (WORD.includes(word[i])) {
+                            document.getElementById(id).style.backgroundColor = "rgb(201, 180, 88)";
+                        } else {
+                            document.getElementById(id).style.backgroundColor = "rgb(120, 124, 126)";
+                        }
+
+                        document.getElementById(id).value = word[i];
                     }
-                    
-                    document.getElementById(id).value = word[i];
+                    if (word.length > 0) {
+                        ROW++;
+                    }
                 }
-                if (word.length > 0) {
-                    ROW++;
-                }
+
                 document.getElementById("WORD_INPUT").value = "";
             }
         </script>
