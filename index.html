@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: monospace;
+                background-color: rgb(255, 255, 255);
+                text-align: center;
+            }
+        </style>
+        <script>
+            var WORD = "APPLE";
+            var ROW = 1;
+            function submitWord() {
+                var word = document.getElementById("WORD_INPUT").value;
+                for (var i = 0; i <word.length; i++) {
+                    document.getElementById(ROW + "-" + (i + 1)).value = word[i];
+                }
+                ROW++;
+                document.getElementById("WORD_INPUT").value = "";
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input id="WORD_INPUT" style="width: 200px; height: 40px; text-align: center;" placeholder="Enter a word" /><br/>
+            <button id="SUBMIT_BUTTON" style="width: 200px; height: 20px;" onclick="submitWord()">Submit</button>
+            <div style="padding-top: 10px;">
+                <input id="1-1" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="1-2" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="1-3" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="1-4" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="1-5" style="width: 40px; height: 40px; text-align: center;" readonly/>
+            </div>
+            <div style="padding-top: 10px;">
+                <input id="2-1" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="2-2" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="2-3" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="2-4" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="2-5" style="width: 40px; height: 40px; text-align: center;" readonly/>
+            </div>
+            <div style="padding-top: 10px;">
+                <input id="3-1" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="3-2" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="3-3" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="3-4" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="3-5" style="width: 40px; height: 40px; text-align: center;" readonly/>
+            </div>
+            <div style="padding-top: 10px;">
+                <input id="4-1" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="4-2" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="4-3" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="4-4" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="4-5" style="width: 40px; height: 40px; text-align: center;" readonly/>
+            </div>
+            <div style="padding-top: 10px;">
+                <input id="5-1" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="5-2" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="5-3" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="5-4" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="5-5" style="width: 40px; height: 40px; text-align: center;" readonly/>
+            </div>
+            <div style="padding-top: 10px;">
+                <input id="6-1" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="6-2" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="6-3" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="6-4" style="width: 40px; height: 40px; text-align: center;" readonly/>
+                <input id="6-5" style="width: 40px; height: 40px; text-align: center;" readonly/>
+            </div>
+        </div>
+    </body>
+</html>
