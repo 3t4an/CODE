@@ -10,7 +10,7 @@
         </style>
         <script>
 
-            WORDLE_WORDS = [
+            var WORDLE_WORDS = [
                 "APPLE", "BEACH", "BRAIN", "BREAD", "BRUSH", "CHAIR", "CHEST", "CLOUD", "DREAM", "DRIVE",
                 "EARTH", "FLAME", "FLASH", "GLASS", "GRAPE", "GREEN", "HEART", "HOUSE", "JUICE", "LIGHT",
                 "MONEY", "MUSIC", "NIGHT", "OCEAN", "PARTY", "PHONE", "PLANT", "PLATE", "POWER", "RADIO",
@@ -23,24 +23,28 @@
                 "AUDIO", "BRAVE", "CLEAN", "CLEAR", "COVER", "EQUAL", "FAITH", "FRESH", "GREAT", "SMART"
             ]
 
+            var ALLOWED_DIGITS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
             var WORD = WORDLE_WORDS[Math.floor(Math.random()*WORDLE_WORDS.length)];
             var ROW = 1;
 
             function submitWord() {
 
-                var DIGITS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+                // DECLARE LOCAL VARIABLES
                 var input = document.getElementById("WORD_INPUT");
                 var word = input.value.toUpperCase();
 
                 input.value = "";
 
+                // CHECK EDGE CASES
+                // 1. Ensures only A-Z are found in the words
                 for (var i = 0; i < word.length; i++) {
-                    if (!DIGITS.includes(word[i])) {
+                    if (!ALLOWED_DIGITS.includes(word[i])) {
                         input.placeholder = "Letters must be A-Z"
                         return
                     }
                 }
 
+                // 2. Ensures the length is 5
                 if (word.length < 5 && word.length > 0) {
                     input.placeholder = "Length must be 5"
                     return
@@ -48,6 +52,7 @@
 
                 input.placeholder = "Enter a word"
 
+                // ADJUST VISUAL LETTER CUES
                 for (var i = 0; i < word.length; i++) {
 
                     id = ROW+"-"+(i+1)
@@ -70,10 +75,13 @@
                     document.getElementById(id).value = word[i];
                 }
 
+                // CHECK POST EDGE CASES
+                // 1. Only increase row if a word was inputted
                 if (word.length > 0) {
                     ROW++;
                 }
 
+                // 2. Stop game and send loss message if row goes past 5
                 if (ROW > 6) {
                     document.getElementById("NOTE").textContent = "You Lost! The Word Was "+WORD+". Reload To Try Again."
                     document.getElementById("NOTE").style.display = "revert"
@@ -81,6 +89,7 @@
                     document.getElementById("SUBMIT_BUTTON").style.display = "None";
                 }
 
+                // 3. Stop game and send win message of the word is correct
                 if (word == WORD) {
                     input.style.display = "None";
                     document.getElementById("SUBMIT_BUTTON").style.display = "None";
@@ -91,6 +100,7 @@
     </head>
     <body>
         <div>
+             <!-- VISUAL WORDS/CHARACTERS -->
             <h1>
                 Wordle
             </h1>
@@ -138,7 +148,8 @@
             </div>
         </div>
         <div>
-            <div style="padding-top: 10px;">
+            <!-- VISUAL CHARACTERS/KEYBOARD -->
+            <div style="padding-top: 20px;">
                 <input id="Q" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="Q"/>
                 <input id="W" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="W"/>
                 <input id="E" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="E"/>
@@ -170,7 +181,7 @@
                 <input id="N" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="N"/>
                 <input id="M" style="width: 15px; height: 20px; text-align: center;" readonly placeholder="M"/>
             </div>
-            <input id="WORD_INPUT" style="width: 200px; height: 20px; text-align: center; margin-top: 5px;" placeholder="Enter a word" maxlength="5"/><br/>
+            <input id="WORD_INPUT" style="width: 200px; height: 20px; text-align: center; margin-top: 20px;" placeholder="Enter a word" maxlength="5"/><br/>
             <button id="SUBMIT_BUTTON" style="width: 200px; height: 20px; text-align: center; margin-top: 5px;" onclick="submitWord()">Submit</button>
             <p id="NOTE" style="display: None;">
                 You Guessed The Word! Reload To Try Again.
